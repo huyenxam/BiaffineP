@@ -1,7 +1,7 @@
 #!/bin/bash
-export TRAIN_PATH="DataNew/train_ViQuAD.json"
-export DEV_PATH="DataNew/dev_ViQuAD.json"
-export TEST_PATH="DataNew/test_ViQuAD.json"
+export TRAIN_PATH="data/train_ViQuAD.json"
+export DEV_PATH="data/dev_ViQuAD.json"
+export TEST_PATH="data/test_ViQuAD.json"
 export CHAR_VOCAB_PATH="data/charindex.json"
 export LABEL_SET_PATH="data/label_set.txt"
 export MAX_CHAR_LEN=20
