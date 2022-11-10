@@ -51,7 +51,7 @@ class InputSample(object):
                     start = len(question) + 2
                     end = len(question) + 2
 
-                set_label.add(["ANSWER", start, end])
+                set_label.append(["ANSWER", start, end])
             
             qa_dict['context'] = context
             qa_dict['question'] = question
