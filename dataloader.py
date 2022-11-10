@@ -40,7 +40,7 @@ class InputSample(object):
                 char_seq.append(character)
 
             labels = sample['label']
-            list_label = [["SEP", 0, 0], ["QUESTION", 1, len(question)], ["CLS", len(question)+1, len(question)+1]]
+            set_label = [["SEP", 0, 0], ["QUESTION", 1, len(question)], ["CLS", len(question)+1, len(question)+1]]
             for lb in labels:
                 start = int(lb[1]) + len(question) + 2
                 end = int(lb[2]) + len(question) + 2
@@ -48,14 +48,14 @@ class InputSample(object):
                     end = self.max_seq_length - 1
 
                 if start >= self.max_seq_length - 1:
-                    start = 0
-                    end = 0
+                    start = len(question) + 2
+                    end = len(question) + 2
 
-                list_label.append(["ANSWER", start, end])
+                set_label.add(["ANSWER", start, end])
             
             qa_dict['context'] = context
             qa_dict['question'] = question
-            qa_dict['label_idx'] = list_label
+            qa_dict['label_idx'] = set_label
             qa_dict['char_sequence'] = char_seq
             l_sample.append(qa_dict)
         
